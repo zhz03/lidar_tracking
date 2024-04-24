@@ -100,3 +100,10 @@ install(DIRECTORY launch/
 	DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/launch
 	PATTERN ".svn" EXCLUDE
 )
+
+#############
+## Samples ##
+#############
+
+## Comment following line to avoid generating demo node
+add_subdirectory(samples)
