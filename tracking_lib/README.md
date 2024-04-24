@@ -1,9 +1,10 @@
 # tracking_lib
 　　The LiDAR tracking library, for tracking objects obtaining from segmentation-based detection and improve segmentation.
 <p align="center">
-    <img src=".readme/demo1.gif" width="720px" alt=""/>
-    <img src=".readme/demo2.gif" width="720px" alt=""/>
+    <img src="figs/demo1.gif" width="720px" alt=""/>
+    <img src="figs/demo2.gif" width="720px" alt=""/>
 </p>
+
 
 ## How to use
 1. We name your ros workspace as `CATKIN_WS` and `git clone` as a ROS package.
@@ -11,11 +12,11 @@
     $ cd $(CATKIN_WS)
     # we recommand you to organize your workspace as following
     $ mkdir -p src/perception/libs
-
+    
     # git clone basic common libraries
     $ cd $(CATKIN_WS)/src/
     $ git clone https://github.com/LidarPerception/common_lib.git common
-
+    
     # git clone perception libraries, tracking_lib and its dependencies
     $ cd $(CATKIN_WS)/src/perception/libs
     $ git clone https://github.com/LidarPerception/roi_filters_lib.git roi_filters
@@ -23,7 +24,7 @@
     $ git clone https://github.com/LidarPerception/segmenters_lib.git segmenters
     $ git clone https://github.com/LidarPerception/feature_extractors_lib.git feature_extractors
     $ git clone https://github.com/LidarPerception/tracking_lib.git tracking
-
+    
     # build your ros workspace for our Tracking-help segmentation demo
     $ cd $(CATKIN_WS)
     $ catkin build -DCMAKE_BUILD_TYPE=Release
@@ -70,5 +71,5 @@
     }
     ```
     <p align="center">
-        <img src=".readme/Tracking-help Segmentation.png" width="480px" alt=""/>
+        <img src="figs/Tracking-help Segmentation.png" width="480px" alt=""/>
     </p>

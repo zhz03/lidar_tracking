@@ -1,13 +1,15 @@
 # object_builders_lib
 　Object Orientation Corrected Bounding Box Fit for Point Cloud Clusters. 
 <p align="center">
-    <img src=".readme/MinMaxBox_vs_MinBox.png" width="688px" alt=""/>
+    <img src="figs/MinMaxBox_vs_MinBox.png" width="688px" alt=""/>
 </p>
+
 
 ## TODO list
 - [x] Apollo's [Min-box Object Builder](https://github.com/ApolloAuto/apollo/blob/master/docs/specs/3d_obstacle_perception_cn.md#minbox-%E9%9A%9C%E7%A2%8D%E7%89%A9%E8%BE%B9%E6%A1%86%E6%9E%84%E5%BB%BA)
 - [ ] TAS: [An Orientation Corrected Bounding Box Fit Based on the Convex Hull under Real Time Constraints](https://www.youtube.com/watch?v=ZGzwdzMygLI&t=0s&list=LLbz4mTfvxwOQQQwDGaXf19A&index=13), similar to Apollo, IV 2018.
 - [ ] **M. Himmelsbach**'s Fit Oriented Box by a *RANSAC* algorithm to fit the _dominant line_ in the xy-projection of the segment’s points; the other axis is then taken to be perpendicular to the dominant line, IV 2012.
+    
     ```bibtex
     @inproceedings{himmelsbach2012tracking,
       title={Tracking and classification of arbitrary objects with bottom-up/top-down detection},

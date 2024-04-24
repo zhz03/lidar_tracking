@@ -3,8 +3,9 @@
 
 　　The LiDAR segmenters library, for segmentation-based detection.
 <p align="center">
-    <img src=".readme/demo.gif" width="720px" alt=""/>
+    <img src="figs/demo.gif" width="720px" alt=""/>
 </p>
+
 
 ## How to use
 1. We name your ros workspace as `CATKIN_WS` and `git clone` as a ROS package, with [common_lib](https://github.com/LidarPerception/common_lib) and [object_builders_lib](https://github.com/LidarPerception/object_builders_lib) as dependencies.
