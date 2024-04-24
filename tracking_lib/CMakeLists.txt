@@ -2,8 +2,8 @@ cmake_minimum_required(VERSION 2.8.3)
 project(tracking_lib)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
-add_compile_options(-std=c++11)
-#add_compile_options(-std=c++14)
+# add_compile_options(-std=c++11)
+add_compile_options(-std=c++14)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
@@ -17,11 +17,18 @@ find_package(catkin REQUIRED COMPONENTS
     common_lib
     feature_extractors_lib
     object_builders_lib
+    std_msgs
+    sensor_msgs
+    geometry_msgs
+    common_lib
+    segmenters_lib
+    roi_filters_lib
+    feature_extractors_lib
 )
 
 ## System dependencies are found with CMake's conventions
 ### PCL
-find_package(PCL 1.8 REQUIRED COMPONENTS
+find_package(PCL REQUIRED COMPONENTS
     common
     io
     filters
@@ -83,16 +90,13 @@ target_link_libraries(${PROJECT_NAME}
     ${Eigen3_LIBRARIES}
 )
 
-#############
-## Install ##
-#############
-
-# ...
-
-
-#############
-## Example ##
-#############
-
-## Comment following line to avoid generating demo node
-add_subdirectory(samples)
+install(TARGETS
+	${PROJECT_NAME}
+	ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+	LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+	RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
+install(DIRECTORY launch/
+	DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/launch
+	PATTERN ".svn" EXCLUDE
+)

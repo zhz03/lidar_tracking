@@ -102,10 +102,33 @@ void DoNSegmenter::segment(const PointICloud &cloud_in,
     ec_extractor_.extract(clusters_indices);
     std::vector<pcl::PointIndices>::const_iterator iter =
         clusters_indices.begin();
+    /*
     for (; iter != clusters_indices.end(); ++iter) {
         PointICloudPtr cluster(new PointICloud);
         pcl::copyPointCloud<PointN, PointI>(*don_cloud_filtered, *iter,
                                             *cluster);
+
+        cloud_clusters.push_back(cluster);
+    }*/
+    for (const pcl::PointIndices & indices : clusters_indices) {
+        PointICloudPtr cluster(new PointICloud);
+
+        pcl::PointCloud<pcl::PointNormal> cloud_in = *don_cloud_filtered;
+        pcl::PointCloud<pcl::PointXYZI> cloud_out = *cluster;
+
+        // Allocate enough space and copy the basics
+        cloud_out.points.resize (indices.indices.size ());
+        cloud_out.header   = cloud_in.header;
+        cloud_out.width    = std::uint32_t (indices.indices.size ());
+        cloud_out.height   = 1;
+        cloud_out.is_dense = cloud_in.is_dense;
+        cloud_out.sensor_orientation_ = cloud_in.sensor_orientation_;
+        cloud_out.sensor_origin_ = cloud_in.sensor_origin_;
+
+        // Iterate over each point
+        for (std::size_t i = 0; i < indices.indices.size (); ++i) {
+            pcl::copyPoint (cloud_in.points[indices.indices[i]], cloud_out.points[i]);
+        }
 
         cloud_clusters.push_back(cluster);
     }

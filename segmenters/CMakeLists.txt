@@ -2,8 +2,8 @@ cmake_minimum_required(VERSION 2.8.3)
 project(segmenters_lib)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
-add_compile_options(-std=c++11)
-#add_compile_options(-std=c++14)
+# add_compile_options(-std=c++11)
+add_compile_options(-std=c++14)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
@@ -15,8 +15,8 @@ find_package(catkin REQUIRED COMPONENTS
     #std_msgs
     #sensor_msgs
     # ROS PCL
-    #pcl_conversions
-    #pcl_ros
+    # pcl_conversions
+    # pcl_ros
     # 3rd modules for ROS, like Eigen
     cmake_modules
     # local packages
@@ -26,7 +26,7 @@ find_package(catkin REQUIRED COMPONENTS
 
 ## System dependencies are found with CMake's conventions
 ### PCL
-find_package(PCL 1.7 REQUIRED COMPONENTS
+find_package(PCL REQUIRED COMPONENTS
     common
     io
     filters
@@ -100,4 +100,15 @@ target_link_libraries(${PROJECT_NAME}
 #############
 
 ## Comment following line to avoid generating demo node
-add_subdirectory(samples)
+# add_subdirectory(samples)
+
+install(TARGETS
+	segmenters_lib
+	ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+	LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+	RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
+install(DIRECTORY launch/
+	DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/launch
+	PATTERN ".svn" EXCLUDE
+)
