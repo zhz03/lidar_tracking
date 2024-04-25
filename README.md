@@ -4,7 +4,10 @@
     <img src="figs/demo1.gif" width="720px" alt=""/>
     <img src="figs/demo2.gif" width="720px" alt=""/>
 </p>
+
+
 ## How to use
+
 1. We name your ros workspace as `CATKIN_WS` and `git clone` as a ROS package.
     ```bash
     
@@ -53,7 +56,7 @@
         After you finish running the code, you will get:
     
         ```
-        ├── kitti_2011_09_26_drive_0017_synced.bag
+        ├── kitti_2011_09_26_drive_0002_synced.bag
         ```
     
     + Play converted rosbag and modify the `detection.yaml` and `tracking.yaml` accordingly.
