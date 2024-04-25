@@ -4,8 +4,6 @@
     <img src="figs/demo1.gif" width="720px" alt=""/>
     <img src="figs/demo2.gif" width="720px" alt=""/>
 </p>
-
-
 ## How to use
 1. We name your ros workspace as `CATKIN_WS` and `git clone` as a ROS package.
     ```bash
@@ -15,7 +13,9 @@
     
     # git clone basic common libraries
     $ cd ~/tracking_ws/src
-    $ git clone https://github.com/LidarPerception/common_lib.git common
+    $ git clone https://github.com/zhz03/lidar_tracking.git
+    # checkout ubuntu20 branch
+    $ git checkout ubuntu20
     
     # build your ros workspace for our Tracking-help segmentation demo
     $ cd ~/tracking_ws
@@ -57,9 +57,9 @@
         ```
     
     + Play converted rosbag and modify the `detection.yaml` and `tracking.yaml` accordingly.
-        
+      
     + **Terminal 2**: launch **Tracking-help Segmentation** demo.
-        
+      
         ```bash
         $ cd ~/tracking_ws
         $ source devel/setup.bash
